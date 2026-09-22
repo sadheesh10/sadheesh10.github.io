@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="白桃花 - 专业花卉园艺与景观设计资源平台，提供白桃花种植指南、养护技巧、园林造景案例及相关花材信息。">
+    <meta name="keywords" content="白桃花, 桃花, 园艺, 花卉种植, 园林景观, 植物养护">
+    <title>白桃花-园艺养护与景观造景资源平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e6b8a2; /* 浅粉 */
+            --primary-dark: #c88b7a;
+            --secondary-color: #f4f1ea; /* 暖白背景 */
+            --text-main: #2c2c2c;
+            --text-light: #666;
+            --accent-green: #6b8c42;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--secondary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-dark);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://picsum.photos/seed/peachflower/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff;
+            color: var(--text-main);
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Features Grid */
+        .features {
+            background-color: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease;
+            background: var(--secondary-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Planting Guide (Steps) */
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 220px;
+            position: relative;
+            padding: 20px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(230, 184, 162, 0.3);
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            line-height: 1;
+        }
+
+        .step-item h4 {
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 20px;
+            color: #fff;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
+                flex-direction: column;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.74 5.88a6 6 0 0 1-8.48 8.48A6 6 0 0 1 5.26 8.57L12 2.69z"></path><path d="M12 2.69l-2.94 3a6 6 0 0 0 8.48 8.48l2.94-3"></path><path d="M12 2.69l2.94 3a6 6 0 0 1-8.48 8.48l-2.94-3"></path></svg>
+                白桃花<span>园艺</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#about">关于白桃花</a></li>
+                    <li><a href="#guide">种植指南</a></li>
+                    <li><a href="#gallery">图赏</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">🔍</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>白桃花：纯洁与坚韧的象征</h1>
+                <p>探索白桃花的种植奥秘、园艺美学与养护技巧，打造属于您的春日雅致庭院。</p>
+                <div class="hero-btns">
+                    <a href="#guide" class="btn btn-primary">开始种植</a>
+                    <a href="#gallery" class="btn btn-outline">查看图赏</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>白桃花的魅力</h3>
+                    <p>白桃花，以其淡雅洁白的花瓣和清新的香气，成为春日里最受欢迎的观赏植物之一。与粉红桃花的热烈不同，白桃花更增添了一份高洁与宁静。</p>
+                    <p>在中国传统文化中，桃花常被视为吉祥与长寿的象征。白桃花作为其中的变种，常用于园林造景，营造“桃红柳绿”之外的另一种清新意境。无论是庭院孤植、列植，还是作为盆栽观赏，白桃花都能为空间带来生机与雅致。</p>
+                    <p>本站致力于为园艺爱好者提供关于白桃花的全面资源，从选种、栽培到病虫害防治，助您轻松养出繁花似锦的白桃花。</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://picsum.photos/seed/whitepeach/600/400" alt="白桃花特写">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择白桃花？</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🌸</span>
+                        <h3>观赏价值高</h3>
+                        <p>花色纯净，花期较长，是春季重要的观花树种，极具观赏性。</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🌱</span>
+                        <h3>适应性强</h3>
+                        <p>耐寒耐旱，对土壤要求不严，易于栽培管理，适合大多数家庭园艺。</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🍃</span>
+                        <h3>生态效益好</h3>
+                        <p>春季开花早，能有效吸引蜜蜂等传粉昆虫，改善庭院微环境。</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🏡</span>
+                        <h3>庭院点缀佳品</h3>
+                        <p>适合作为景观树、绿篱或盆景素材，提升庭院格调。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planting Guide -->
+        <section id="guide" class="container">
+            <div class="section-header">
+                <h2>白桃花种植指南</h2>
+            </div>
+            <div class="steps-container">
+                <div class="step-item">
+                    <span class="step-number">01</span>
+                    <h4>选种与土壤</h4>
+                    <p>选择健壮的白桃花苗，喜疏松肥沃、排水良好的微酸性沙壤土。避免在低洼积水处种植。</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">02</span>
+                    <h4>种植时间</h4>
+                    <p>最佳种植时间为早春萌芽前或秋季落叶后。此时植株处于休眠期，移栽成活率最高。</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">03</span>
+                    <h4>日常养护</h4>
+                    <p>生长期需保持土壤湿润但不积水。花前和花后各施一次磷钾肥，促进开花和恢复。</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">04</span>
+                    <h4>修剪整形</h4>
+                    <p>每年冬季进行疏剪，剪去病枯枝、交叉枝，保持树形通风透光，利于来年开花繁茂。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>白桃花图赏</h2>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/flower1/400/300" alt="白桃花盛开">
+                        <div class="gallery-overlay">
+                            <h4>盛花期景观</h4>
+                            <p>满树银白，如云似霞</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/flower2/400/300" alt="白桃花细节">
+                        <div class="gallery-overlay">
+                            <h4>花蕊特写</h4>
+                            <p>细腻的花瓣纹理</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/flower3/400/300" alt="庭院白桃">
+                        <div class="gallery-overlay">
+                            <h4>庭院种植</h4>
+                            <p>简约而不简单的搭配</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/flower4/400/300" alt="白桃枝干">
+                        <div class="gallery-overlay">
+                            <h4>枝干艺术</h4>
+                            <p>枯荣有序的自然之美</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container" style="max-width: 800px;">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">白桃花开花时间是什么时候？</div>
+                    <div class="faq-answer">
+                        <p>白桃花通常在每年的3月至4月开花，具体时间因地域气候差异而略有不同。在南方温暖地区，花期可能会提前。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">白桃花适合室内种植吗？</div>
+                    <div class="faq-answer">
+                        <p>白桃花是落叶乔木，需要充足的阳光和较大的生长空间。不适合长期在室内种植，建议在庭院或阳台种植。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">白桃花有毒吗？</div>
+                    <div class="faq-answer">
+                        <p>白桃花本身无毒，但桃花的花瓣、树皮和根皮中含有桃仁甙等成分，过量食用可能引起中毒。请勿随意采摘食用，仅供观赏。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">为什么我的白桃花不开花？</div>
+                    <div class="faq-answer">
+                        <p>不开花可能与光照不足、修剪不当、施肥过多（导致只长叶不开花）或树龄过小（未到花期）有关。建议检查养护环境并适当修剪和控水。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于白桃花</h4>
+                <p style="color: #bbb; font-size: 0.9rem;">专注于白桃花的科普与园艺推广，致力于分享自然之美与种植智慧。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">种植指南</a></li>
+                    <li><a href="#">病虫害防治</a></li>
+                    <li><a href="#">品种介绍</a></li>
+                    <li><a href="#">园艺论坛</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li><a href="#">合作咨询</a></li>
+                    <li><a href="#">投稿建议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p style="color: #bbb; font-size: 0.9rem;">获取最新的园艺资讯与种植技巧。</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 白桃花园艺. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
