@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="海康威视软件下载中心提供官方安防监控软件、客户端、驱动程序及管理工具，支持海康威视NVR、DVR、IPC设备，确保设备稳定运行与高效管理。">
+    <meta name="keywords" content="海康威视软件下载中心,海康威视客户端,海康大华SDK,安防监控软件,海康威视iVMS">
+    <title>海康威视软件下载中心-官方客户端与工具获取平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0052cc;
+            --secondary-color: #003d99;
+            --accent-color: #ff9900;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --border-color: #e1e4e8;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-outline {
+            padding: 8px 20px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+            border: none;
+            font-size: 16px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            padding: 0 25px;
+            background-color: var(--accent-color);
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .search-box button:hover {
+            background-color: #e68a00;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 40px;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .category-menu h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .category-menu ul li {
+            margin-bottom: 10px;
+        }
+
+        .category-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-secondary);
+            border-radius: var(--radius-md);
+            transition: all 0.2s;
+        }
+
+        .category-menu a:hover, .category-menu a.active {
+            background-color: #eef2f7;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Content Area */
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Section Styles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        .section-header a {
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+
+        /* Software Grid */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .software-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .software-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #eef2f7;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .card-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .software-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .software-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            color: #666;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline-light {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline-light:hover {
+            border-color: var(--text-main);
+        }
+
+        /* Info List */
+        .info-list {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item:hover {
+            background-color: #fafbfc;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .info-content {
+            flex-grow: 1;
+        }
+
+        .info-content h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .info-content p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .info-download {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Installation Guide */
+        .guide-section {
+            background-color: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: var(--radius-lg);
+            padding: 30px;
+        }
+
+        .guide-section h3 {
+            color: #856404;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-list {
+            counter-reset: step;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .step-item::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background-color: #ffe082;
+            color: #856404;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .step-item h4 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .step-item p {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                margin: 15px 0;
+                font-size: 14px;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 12h5l3 5 5-11 4 7h3"></path>
+                </svg>
+                <span>海康威视软件下载中心</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">软件下载</a></li>
+                    <li><a href="#">设备管理</a></li>
+                    <li><a href="#">驱动更新</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-outline">注册账号</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>官方软件资源与工具平台</h1>
+            <p>提供海康威视全线产品配套软件、客户端、SDK开发包及驱动程序，助力您高效构建智能安防系统。</p>
+            <div class="search-box">
+                <input type="text" placeholder="输入软件名称、设备型号或功能关键词...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <aside>
+            <div class="category-menu">
+                <h3>按产品类型</h3>
+                <ul>
+                    <li><a href="#" class="active">综合客户端</a></li>
+                    <li><a href="#">个人录像机 (NVR/DVR)</a></li>
+                    <li><a href="#">网络摄像机 (IPC)</a></li>
+                    <li><a href="#">智能门禁/考勤</a></li>
+                    <li><a href="#">智能分析平台</a></li>
+                    <li><a href="#">存储服务器</a></li>
+                </ul>
+            </div>
+            <div class="category-menu" style="margin-top: 30px;">
+                <h3>开发工具</h3>
+                <ul>
+                    <li><a href="#">EasySDK / EasyDarwin</a></li>
+                    <li><a href="#">iVMS-4200 SDK</a></li>
+                    <li><a href="#">MediaServer SDK</a></li>
+                    <li><a href="#">控制卡驱动</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="content">
+            <!-- Featured Software -->
+            <section>
+                <div class="section-header">
+                    <h2>热门推荐</h2>
+                    <a href="#">查看全部 &rarr;</a>
+                </div>
+                <div class="software-grid">
+                    <article class="software-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <h3>iVMS-4200 客户端</h3>
+                        <p>海康威视官方综合客户端，支持多级用户管理、设备配置、视频预览、录像回放及报警联动，适用于NVR、IPC、DVR等多种设备。</p>
+                        <div class="card-tags">
+                            <span class="tag">Windows</span>
+                            <span class="tag">Mac</span>
+                            <span class="tag">安卓</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-primary">立即下载</a>
+                            <a href="#" class="btn btn-outline-light">查看文档</a>
+                        </div>
+                    </article>
+
+                    <article class="software-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        </div>
+                        <h3>WebBrowser</h3>
+                        <p>基于Web的浏览器插件，用于在IE、Chrome等主流浏览器中直接播放海康威视设备视频流，无需安装客户端即可预览。</p>
+                        <div class="card-tags">
+                            <span class="tag">Chrome</span>
+                            <span class="tag">IE</span>
+                            <span class="tag">Edge</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-primary">立即下载</a>
+                            <a href="#" class="btn btn-outline-light">安装说明</a>
+                        </div>
+                    </article>
+
+                    <article class="software-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <h3>HiLook Client</h3>
+                        <p>针对萤石云生态设备的专用客户端，支持萤石云账号登录，实现手机与电脑之间的视频共享与远程控制。</p>
+                        <div class="card-tags">
+                            <span class="tag">萤石云</span>
+                            <span class="tag">远程监控</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-primary">立即下载</a>
+                            <a href="#" class="btn btn-outline-light">帮助中心</a>
+                        </div>
+                    </article>
+
+                    <article class="software-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <h3>EasyPlayer Pro</h3>
+                        <p>专业的音视频播放工具，支持多种网络协议，用于调试和播放海康威视及其他厂家的设备视频流。</p>
+                        <div class="card-tags">
+                            <span class="tag">播放器</span>
+                            <span class="tag">调试工具</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn btn-primary">立即下载</a>
+                            <a href="#" class="btn btn-outline-light">协议文档</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Key Features List -->
+            <section>
+                <div class="section-header">
+                    <h2>常用功能与工具</h2>
+                </div>
+                <div class="info-list">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>设备驱动更新</h4>
+                            <p>获取最新硬件驱动，确保网络摄像机、硬盘录像机及智能门禁设备稳定连接与运行。</p>
+                        </div>
+                        <a href="#" class="info-download">下载驱动 &rarr;</a>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>SDK开发包</h4>
+                            <p>为系统集成商和开发者提供C++、C#、Java等多语言SDK，实现二次开发与平台集成。</p>
+                        </div>
+                        <a href="#" class="info-download">下载SDK &rarr;</a>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        </div>
+                        <div class="info-content">
+                            <h4>配置工具与固件</h4>
+                            <p>提供设备初始化配置工具及官方固件升级包，解决设备兼容性问题及功能升级。</p>
+                        </div>
+                        <a href="#" class="info-download">查看工具 &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Installation Guide -->
+            <section class="guide-section">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    常见问题与安装指引
+                </h3>
+                <div class="step-list">
+                    <div class="step-item">
+                        <h4>下载前准备</h4>
+                        <p>请确认您的设备型号，并选择与操作系统（Windows 10/11 或 macOS）匹配的软件版本。</p>
+                    </div>
+                    <div class="step-item">
+                        <h4>安装注意事项</h4>
+                        <p>安装客户端时，请关闭防火墙或杀毒软件，防止误拦截。建议安装至默认路径。</p>
+                    </div>
+                    <div class="step-item">
+                        <h4>首次登录配置</h4>
+                        <p>首次运行软件时，请使用设备IP或设备序列号进行搜索，输入管理员密码登录。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">发展历程</a></li>
+                    <li><a href="#">企业文化</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>产品与服务</h4>
+                <ul>
+                    <li><a href="#">网络摄像机</a></li>
+                    <li><a href="#">视频录像机</a></li>
+                    <li><a href="#">智能门禁</a></li>
+                    <li><a href="#">存储解决方案</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持与联系</h4>
+                <ul>
+                    <li><a href="#">下载中心</a></li>
+                    <li><a href="#">技术支持</a></li>
+                    <li><a href="#">服务政策</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">官方微博</a></li>
+                    <li><a href="#">视频号</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 海康威视数字技术股份有限公司 版权所有 | 浙ICP备09046623号</p>
+        </div>
+    </footer>
+
+</body>
+                                                                                                                                 </html>
