@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BTV6节目预告网 - 北京卫视（BTV-6）每日电视节目单查询、电视剧排期表及直播回看指南。提供北京卫视最新节目安排，涵盖综艺、电视剧、新闻、纪录片等频道内容。">
+    <meta name="keywords" content="btv6节目预告,北京卫视节目单,北京卫视直播,BTV6电视剧,BTV6综艺排期,北京电视台节目表">
+    <title>btv6节目预告-北京卫视每日节目单与直播指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e60012; /* 北京卫视红 */
+            --secondary-color: #1a1a1a;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e60012 0%, #ff4d4d 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .live-badge {
+            display: inline-block;
+            background-color: #fff;
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Section Styling */
+        section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .date-selector {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Schedule List */
+        .schedule-list {
+            list-style: none;
+        }
+
+        .schedule-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px dashed #eee;
+            transition: background 0.2s;
+            border-radius: 6px;
+        }
+
+        .schedule-item:hover {
+            background-color: #fafafa;
+        }
+
+        .time {
+            width: 100px;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .program-info {
+            flex-grow: 1;
+        }
+
+        .program-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--secondary-color);
+        }
+
+        .program-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .program-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: #666;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .tag-live { background-color: #fff0f0; color: var(--primary-color); }
+        .tag-news { background-color: #e6f7ff; color: #1890ff; }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .category-list li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .category-list a:hover {
+            background-color: #f5f5f5;
+            color: var(--primary-color);
+        }
+
+        .count {
+            background-color: #eee;
+            color: #999;
+            font-size: 0.8rem;
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ccc;
+            padding: 40px 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+            
+            nav {
+                display: none; /* Simplified for static demo */
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                padding: 20px 15px;
+            }
+
+            .schedule-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .time {
+                width: 100%;
+                color: var(--text-light);
+                font-size: 0.9rem;
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="#" class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            <div>BTV6<span>节目预告</span></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">今日节目</a></li>
+                <li><a href="#">本周排期</a></li>
+                <li><a href="#">直播回看</a></li>
+                <li><a href="#">电视剧场</a></li>
+                <li><a href="#">综艺频道</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">☰</div>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="live-badge">● 正在直播</div>
+    <h1>北京卫视（BTV-6）</h1>
+    <p>为您提供最准确、最及时的北京卫视节目单查询服务</p>
+</div>
+
+<main class="container">
+    <!-- Main Content: Today's Schedule -->
+    <section>
+        <div class="section-header">
+            <h2>今日节目单 (2023年10月24日)</h2>
+            <span class="date-selector">星期二</span>
+        </div>
+        
+        <ul class="schedule-list">
+            <li class="schedule-item">
+                <div class="time">06:00</div>
+                <div class="program-info">
+                    <div class="program-title">北京新闻</div>
+                    <div class="program-desc">综合新闻资讯报道</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">06:30</div>
+                <div class="program-info">
+                    <div class="program-title"><span class="program-tag tag-live">直播</span> 北京您早</div>
+                    <div class="program-desc">北京地区早间新闻服务</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">07:00</div>
+                <div class="program-info">
+                    <div class="program-title">特战荣耀</div>
+                    <div class="program-desc">军旅题材电视剧，热血励志。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">09:00</div>
+                <div class="program-info">
+                    <div class="program-title">养生堂</div>
+                    <div class="program-desc">健康科普类节目。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">10:00</div>
+                <div class="program-info">
+                    <div class="program-title">天下收藏</div>
+                    <div class="program-desc">收藏类鉴赏节目。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">12:00</div>
+                <div class="program-info">
+                    <div class="program-title">北京新闻</div>
+                    <div class="program-desc">午间新闻播报。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">12:30</div>
+                <div class="program-info">
+                    <div class="program-title">书华堂</div>
+                    <div class="program-desc">文化读书类节目。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">13:00</div>
+                <div class="program-info">
+                    <div class="program-title">今日热搜</div>
+                    <div class="program-desc">社会热点新闻解读。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">14:00</div>
+                <div class="program-info">
+                    <div class="program-title">金牌调解</div>
+                    <div class="program-desc">家庭情感纠纷调解。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">15:00</div>
+                <div class="program-info">
+                    <div class="program-title">快乐生活一点通</div>
+                    <div class="program-desc">生活妙招分享。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">16:00</div>
+                <div class="program-info">
+                    <div class="program-title">法治进行时</div>
+                    <div class="program-desc">法制新闻专题报道。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">17:30</div>
+                <div class="program-info">
+                    <div class="program-title">天天饮食</div>
+                    <div class="program-desc">美食制作与分享。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">18:30</div>
+                <div class="program-info">
+                    <div class="program-title">特别节目</div>
+                    <div class="program-desc">晚间特别编排。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">19:30</div>
+                <div class="program-info">
+                    <div class="program-title">电视剧：破冰行动</div>
+                    <div class="program-desc">缉毒题材电视剧。</div>
+                </div>
+            </li>
+            <li class="schedule-item">
+                <div class="time">21:30</div>
+                <div class="program-info">
+                    <div class="program-title"><span class="program-tag tag-live">直播</span> 北京卫视直播</div>
+                    <div class="program-desc">晚间综合新闻与专题节目。</div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Sidebar -->
+    <aside>
+        <div class="sidebar-widget">
+            <h3>热门分类</h3>
+            <ul class="category-list">
+                <li><a href="#">电视剧场 <span class="count">24部</span></a></li>
+                <li><a href="#">综艺频道 <span class="count">12档</span></a></li>
+                <li><a href="#">新闻资讯 <span class="count">50条</span></a></li>
+                <li><a href="#">纪录片 <span class="count">8部</span></a></li>
+                <li><a href="#">健康养生 <span class="count">15档</span></a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3>本周推荐</h3>
+            <ul class="schedule-list" style="padding-left: 10px;">
+                <li style="margin-bottom: 10px;">
+                    <div class="time" style="font-size: 0.85rem;">周五</div>
+                    <div class="program-title" style="font-size: 0.95rem;">2023北京国际电影节</div>
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <div class="time" style="font-size: 0.85rem;">周六</div>
+                    <div class="program-title" style="font-size: 0.95rem;">环球音乐盛典</div>
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <div class="time" style="font-size: 0.85rem;">周日</div>
+                    <div class="program-title" style="font-size: 0.95rem;">北京卫视春晚彩排</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3>使用指南</h3>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">
+                本网站提供BTV-6北京卫视的官方及非官方节目预告信息，具体播出时间请以电视屏幕为准。
+            </p>
+            <a href="#" style="color: var(--primary-color); font-size: 0.9rem; font-weight: bold;">查看直播入口 &rarr;</a>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="#">关于我们</a>
+        <a href="#">免责声明</a>
+        <a href="#">联系方式</a>
+        <a href="#">网站地图</a>
+    </div>
+    <p class="copyright">Copyright © 2023 BTV6节目预告网. All Rights Reserved.</p>
+    <p class="copyright" style="margin-top: 5px;">BTV6节目预告 - 北京卫视每日节目单与直播指南</p>
+</footer>
+
+</body>
+</html>
