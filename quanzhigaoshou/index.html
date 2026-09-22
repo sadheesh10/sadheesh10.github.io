@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="全职高手漫画在线阅读平台，提供《全职高手》正版漫画高清连载，包含叶修、唐柔等角色精彩剧情，支持手机、平板、电脑多端访问，免费畅读热门电竞题材漫画。">
+    <meta name="keywords" content="全职高手漫画,全职高手,叶修,荣耀,电竞漫画,国漫">
+    <title>全职高手漫画-正版高清连载与角色图鉴</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #0984e3;
+            --highlight-color: #fdcb6e;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-sub: #636e72;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--text-sub);
+        }
+
+        .nav-menu a.active, .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f1f2f6;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 150px;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0984e3 0%, #74b9ff 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+
+        /* Section Styles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        /* Comic List */
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 24px;
+        }
+
+        .comic-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .comic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 140%; /* Aspect ratio 5:7 */
+            background-color: #dfe6e9;
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--highlight-color);
+            color: var(--text-main);
+            font-size: 12px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .rank-list {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: #dfe6e9;
+            color: var(--text-sub);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 12px;
+            font-weight: bold;
+        }
+
+        .rank-item:nth-child(1) .rank-num { background: #ff7675; color: white; }
+        .rank-item:nth-child(2) .rank-num { background: #fab1a0; color: white; }
+        .rank-item:nth-child(3) .rank-num { background: #ffeaa7; color: #d35400; }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .rank-views {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* Character Section */
+        .character-section {
+            margin-top: 60px;
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .char-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+
+        .char-card:hover {
+            transform: scale(1.02);
+        }
+
+        .char-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #dfe6e9;
+            margin: 0 auto 12px;
+            overflow: hidden;
+        }
+
+        .char-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .char-name {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .char-clan {
+            font-size: 12px;
+            color: var(--text-sub);
+            background: #f1f2f6;
+            padding: 2px 8px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: #b2bec3;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .search-box {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>荣耀</span>漫画
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">全部分类</a>
+                <a href="#">排行榜</a>
+                <a href="#">作者专区</a>
+                <a href="#">关于我们</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索作品...">
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>全职高手漫画</h1>
+            <p>重返巅峰，荣耀归来！这里是《全职高手》正版漫画连载平台，为您呈现叶修、唐柔、苏沐橙等角色的高燃对决与热血故事。</p>
+            <div class="hero-tags">
+                <span class="tag">#热血电竞</span>
+                <span class="tag">#团队竞技</span>
+                <span class="tag">#冠军荣耀</span>
+                <span class="tag">#国漫精品</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-container">
+        <!-- Left Content -->
+        <div class="content-area">
+            
+            <!-- Latest Updates -->
+            <section class="updates-section">
+                <div class="section-header">
+                    <h2 class="section-title">最新更新</h2>
+                    <a href="#" class="section-more">查看更多 &rarr;</a>
+                </div>
+                <div class="comic-grid">
+                    <!-- Card 1 -->
+                    <article class="comic-card">
+                        <div class="card-cover">
+                            <span class="card-badge">连载中</span>
+                            <img src="https://picsum.photos/seed/qzgg1/300/420" alt="全职高手封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">全职高手 第一千二百一十五章</h3>
+                            <div class="card-meta">
+                                <span>今天 12:00</span>
+                                <span>20.5万</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="comic-card">
+                        <div class="card-cover">
+                            <span class="card-badge">连载中</span>
+                            <img src="https://picsum.photos/seed/qzgg2/300/420" alt="全职高手封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">全职高手 第一千二百一十四章</h3>
+                            <div class="card-meta">
+                                <span>昨天 12:00</span>
+                                <span>18.2万</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="comic-card">
+                        <div class="card-cover">
+                            <span class="card-badge">连载中</span>
+                            <img src="https://picsum.photos/seed/qzgg3/300/420" alt="全职高手封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">全职高手 第一千二百一十三章</h3>
+                            <div class="card-meta">
+                                <span>10-24 12:00</span>
+                                <span>15.8万</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="comic-card">
+                        <div class="card-cover">
+                            <span class="card-badge">完结</span>
+                            <img src="https://picsum.photos/seed/qzgg4/300/420" alt="全职高手封面">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">全职高手 特别篇：荣耀归来</h3>
+                            <div class="card-meta">
+                                <span>10-20 12:00</span>
+                                <span>50.1万</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Characters Section -->
+            <section class="character-section">
+                <div class="section-header">
+                    <h2 class="section-title">热门角色</h2>
+                    <a href="#" class="section-more">查看角色图鉴 &rarr;</a>
+                </div>
+                <div class="char-grid">
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/yexiu/150/150" alt="叶修头像">
+                        </div>
+                        <h3 class="char-name">叶修</h3>
+                        <span class="char-clan">嘉世战队</span>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/tangrou/150/150" alt="唐柔头像">
+                        </div>
+                        <h3 class="char-name">唐柔</h3>
+                        <span class="char-clan">嘉世战队</span>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/sumuying/150/150" alt="苏沐橙头像">
+                        </div>
+                        <h3 class="char-name">苏沐橙</h3>
+                        <span class="char-clan">蓝河战队</span>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/xiao7/150/150" alt="周泽楷头像">
+                        </div>
+                        <h3 class="char-name">周泽楷</h3>
+                        <span class="char-clan">轮回战队</span>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/litang/150/150" alt="林敬言头像">
+                        </div>
+                        <h3 class="char-name">林敬言</h3>
+                        <span class="char-clan">微草战队</span>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/yangchuan/150/150" alt="楚云秀头像">
+                        </div>
+                        <h3 class="char-name">楚云秀</h3>
+                        <span class="char-clan">战矛战队</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar">
+            <!-- Ranking -->
+            <div class="rank-list">
+                <h3 class="section-title" style="margin-bottom: 15px; font-size: 16px;">热门榜单</h3>
+                <ul>
+                    <li class="rank-item">
+                        <span class="rank-num">1</span>
+                        <div class="rank-info">
+                            <span class="rank-title">全职高手</span>
+                            <span class="rank-views">982.5万 阅读</span>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <span class="rank-num">2</span>
+                        <div class="rank-info">
+                            <span class="rank-title">全职高手</span>
+                            <span class="rank-views">865.2万 阅读</span>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <span class="rank-num">3</span>
+                        <div class="rank-info">
+                            <span class="rank-title">全职高手</span>
+                            <span class="rank-views">743.1万 阅读</span>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <span class="rank-num">4</span>
+                        <div class="rank-info">
+                            <span class="rank-title">全职高手</span>
+                            <span class="rank-views">612.8万 阅读</span>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <span class="rank-num">5</span>
+                        <div class="rank-info">
+                            <span class="rank-title">全职高手</span>
+                            <span class="rank-views">598.4万 阅读</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Info Box -->
+            <div style="background: #e1f5fe; padding: 20px; border-radius: 8px; color: #0277bd;">
+                <h4 style="margin-bottom: 10px;">关于《全职高手》</h4>
+                <p style="font-size: 13px; line-height: 1.5;">
+                    《全职高手》是蝴蝶蓝创作的网络小说，后被改编为同名漫画。故事讲述了顶尖高手叶修在遭俱乐部驱逐后，在网吧重拾荣耀，带领草根战队重返巅峰的故事。
+                </p>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>荣耀漫画</h3>
+                <p style="font-size: 14px; line-height: 1.6;">
+                    专注于提供正版、高清、流畅的漫画阅读体验。汇聚全网热门国漫、日漫、韩漫，满足您的阅读需求。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>快速导航</h3>
+                <ul>
+                    <li><a href="#">全部分类</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">热门推荐</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li><a href="#">阅读指南</a></li>
+                    <li><a href="#">作品投稿</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 全职高手漫画阅读网. All Rights Reserved. 本站仅用于展示设计效果，非官方授权页面。</p>
+        </div>
+    </footer>
+
+</body>
+              </html>
