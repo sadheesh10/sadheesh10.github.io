@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>战龙三国骑兵-三国冷兵器历史与骑兵战术深度解析</title>
+    <meta name="description" content="本站专注于战龙三国骑兵的历史考据与战术推演。深入分析三国时期铁骑的装备配置、阵型演变、实战战例及冷兵器时代的骑兵运用技巧。">
+    <meta name="keywords" content="战龙三国骑兵, 三国骑兵, 铁骑, 冷兵器, 骑兵战术, 三国历史">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8b0000; /* 深红，象征战争 */
+            --secondary-color: #d4af37; /* 金色，象征荣耀 */
+            --dark-bg: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #444;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: '';
+            display: block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-color);
+            transform: rotate(45deg);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://picsum.photos/seed/sanguo_cavalry/1600/900') no-repeat center center/cover;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #f0f0f0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 1px solid var(--primary-color);
+        }
+
+        .cta-btn:hover {
+            background-color: #a00000;
+            border-color: #a00000;
+        }
+
+        /* 内容区域 */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 1rem auto 0;
+        }
+
+        /* 装备解析 Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--secondary-color);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #000;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .card-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* 战术布局 */
+        .tactics-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .tactics-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tactics-visual {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tactic-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tactic-list li::before {
+            content: '⚔';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        /* 历史战例 */
+        .battle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .battle-item {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+        }
+
+        .battle-year {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* 常见问题 */
+        .faq-item {
+            background-color: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .faq-answer {
+            padding: 0 1rem 1rem;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #111;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            margin: 0 1rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .battle-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">战龙三国骑兵</a>
+            <nav>
+                <ul>
+                    <li><a href="#history">历史溯源</a></li>
+                    <li><a href="#equipment">装备解析</a></li>
+                    <li><a href="#tactics">战术阵型</a></li>
+                    <li><a href="#battles">经典战例</a></li>
+                    <li><a href="#faq">知识问答</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>铁骑破阵，金戈铁马</h1>
+                <p>探索三国时期战龙骑兵的装备配置、战术演变与历史实战细节，重温冷兵器时代的骑兵巅峰。</p>
+                <a href="#equipment" class="cta-btn">查看装备图鉴</a>
+            </div>
+        </section>
+
+        <section id="history" class="container">
+            <h2 class="section-title">历史溯源</h2>
+            <div class="grid-layout">
+                <article>
+                    <h3>从游牧到精锐</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        战龙三国骑兵并非凭空产生，其雏形可追溯至东汉末年的边郡屯田与募兵制改革。随着马镫的普及与马具的改进，中原骑兵逐渐具备了与北方游牧民族对抗的能力。在三国鼎立的格局下，骑兵成为了决定战场胜负的关键机动力量。
+                    </p>
+                </article>
+                <article>
+                    <h3>兵种编制演变</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        曹魏作为北方霸主，建立了最庞大的马军体系，分为轻骑、重骑及虎豹骑等精锐序列。蜀汉因地利之便，擅长山地骑兵与奇袭战术。东吴则依托长江水网，发展出了独特的江上骑射与水陆协同战术。
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="equipment" class="container" style="background-color: #232323; border-radius: 8px;">
+            <h2 class="section-title">装备解析</h2>
+            <div class="grid-layout">
+                <div class="card">
+                    <img src="https://picsum.photos/seed/sword/400/250" alt="环首刀" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">环首铁刀</h3>
+                        <p class="card-text">骑兵主战武器，刀身修长锋利，利于劈砍。环首设计便于系于腰间，适应高速冲锋中的格斗需求。</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/shield/400/250" alt="圆盾" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">皮甲圆盾</h3>
+                        <p class="card-text">轻型防护装备，通常由犀牛皮制成，辅以铁钉加固。盾牌直径适中，兼顾防御与手部灵活性。</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/helmet/400/250" alt="兜鍪" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">兽面铁兜鍪</h3>
+                        <p class="card-text">重型头盔，多为两片铁叶拼接，前有护鼻。装饰兽面纹样，既具威慑力，又能保护面部关键部位。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tactics" class="container">
+            <h2 class="section-title">战术阵型</h2>
+            <div class="tactics-container">
+                <div class="tactics-text">
+                    <h3>骑兵冲锋的节奏控制</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        战龙三国骑兵的威力不在于盲目冲锋，而在于对冲锋节奏的精准把控。从轻骑的散兵线骚扰到重骑的方阵正面突击，每一步都经过严苛训练。
+                    </p>
+                    <ul class="tactic-list">
+                        <li><strong>鱼丽之阵：</strong>模仿鱼鳞排列的战术，利用骑兵的机动性进行穿插与包围。</li>
+                        <li><strong>钳击战术：</strong>两翼骑兵包抄敌军侧翼，切断其退路与粮道。</li>
+                        <li><strong>冲锋陷阵：</strong>重骑兵在前排承受伤害，后排弓骑进行火力覆盖。</li>
+                    </ul>
+                </div>
+                <div class="tactics-visual">
+                    <h3>阵型示意图说明</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        在实战中，骑兵通常不会保持静止，而是保持高速移动。通过马蹄扬起的尘土和骑兵的呐喊声，可以极大程度上震慑敌方步兵阵型。阵型的变换需要极高的协同性，一旦阵型溃散，骑兵将瞬间失去战斗力。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="battles" class="container">
+            <h2 class="section-title">经典战例</h2>
+            <div class="battle-grid">
+                <div class="battle-item">
+                    <span class="battle-year">公元200年 - 官渡之战</span>
+                    <h3>曹军虎豹骑奇袭</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        曹操派遣虎豹骑昼夜兼程追击袁绍的乌桓骑兵，展现了三国时期精锐骑兵惊人的机动速度与战斗力，一举奠定北定中原的基础。
+                    </p>
+                </div>
+                <div class="battle-item">
+                    <span class="battle-year">公元228年 - 街亭之战</span>
+                    <h3>魏蜀骑兵对抗</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        魏军利用精锐骑兵在平地上压制了蜀汉的步兵方阵，马谡失街亭，正是因为在战术上未能有效应对魏军的骑兵机动优势。
+                    </p>
+                </div>
+                <div class="battle-item">
+                    <span class="battle-year">公元222年 - 汉水之战</span>
+                    <h3>黄忠的突袭战术</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        老将黄忠利用夜色掩护，率领骑兵出其不意地突袭魏军营地，展示了骑兵在夜战与奇袭中的独特作用。
+                    </p>
+                </div>
+                <div class="battle-item">
+                    <span class="battle-year">公元249年 - 高平陵之变</span>
+                    <h3>司马懿的回马枪</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        司马懿利用武卫军骑兵的机动性，在阵前突然回马，有效地阻挡了曹爽的步兵追击，为政变成功争取了关键时间。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="container">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-item">
+                <div class="faq-question">三国时期是否拥有成熟的马镫？</div>
+                <div class="faq-answer">
+                    <p>三国时期马镫已开始出现并逐渐普及，但早期的马镫多为单镫。双马镫的普及通常被认为是在西晋时期，这极大地提升了骑兵的骑乘稳定性和作战效能。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">战龙三国骑兵与后来的隋唐铁骑有何不同？</div>
+                <div class="faq-answer">
+                    <p>三国时期的骑兵更侧重于轻骑兵的游击骚扰和重骑兵的突击攻坚，装备相对简陋。隋唐铁骑则在装备标准化、阵型严密性以及后勤保障体系上更为成熟。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">如何判断一个骑兵部队的战斗力？</div>
+                <div class="faq-answer">
+                    <p>主要看其训练时长、装备质量以及是否具备长途奔袭的能力。精锐骑兵往往能够进行数十里的急行军并保持战斗力，这是区分普通民兵与职业军人的关键标准。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">历史资料库</a>
+                <a href="#">兵种图鉴</a>
+                <a href="#">联系方式</a>
+            </div>
+            <p class="copyright">&copy; 2023 战龙三国骑兵文化研究. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ折叠交互
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // 移动端菜单切换（简单实现）
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navUl = document.querySelector('nav ul');
+        
+        menuBtn.addEventListener('click', () => {
+            if (navUl.style.display === 'flex') {
+                navUl.style.display = 'none';
+            } else {
+                navUl.style.display = 'flex';
+                navUl.style.flexDirection = 'column';
+                navUl.style.position = 'absolute';
+                navUl.style.top = '60px';
+                navUl.style.left = '0';
+                navUl.style.width = '100%';
+                navUl.style.backgroundColor = '#1a1a1a';
+                navUl.style.padding = '1rem';
+                navUl.style.borderBottom = '1px solid #444';
+            }
+        });
+    </script>
+</body>
+</html>
